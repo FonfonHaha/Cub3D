@@ -140,7 +140,6 @@ void			ft_parse(t_struct *s)
 			ft_read_line(s, line);
 			free(line);
 		}
-		/*printf("%s\n", line);*/
 	}
 	free(line);
 	if (ft_check_parsing(s) == -1)

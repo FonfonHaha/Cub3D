@@ -55,7 +55,7 @@ void	ft_init_ii(t_struct *s)
 	s->floor = s->sky;
 }
 
-void	ft_init_raycasting_data(t_struct *s)
+void	ft_init_rc_data(t_struct *s)
 {
 	s->ray.pos.x = 0;
 	s->ray.pos.y = 0;
@@ -77,15 +77,14 @@ void	ft_init_raycasting_data(t_struct *s)
 void	ft_init(char *av1)//, int arg
 {
 	t_struct	s;
-	//int			tab[3];
+	int			tab[3];
 
 	s.cub = ft_strdup(av1);
 	s.mlx = mlx_init();
 	ft_init_ii(&s);
 	ft_init_iii(&s);
 	ft_parse(&s);
-	/*
-	ft_init_raycasting_data(&s);
+	ft_init_rc_data(&s);
 	s.img.ptr = mlx_new_image(s.mlx, s.win.x, s.win.y);
 	s.img.adr = (unsigned int*)mlx_get_data_addr(s.img.ptr, 
 			&tab[0], &tab[1],&tab[2]);
@@ -93,6 +92,7 @@ void	ft_init(char *av1)//, int arg
 		ft_bitmap(&s);
 	s.win.ptr = mlx_new_window(s.mlx, s.win.x, s.win.y, WIN_NAME);
 	ft_wall(&s);
+	/*
 	mlx_put_image_to_window(s.mlx, s.win.ptr, s.img.ptr, 0, 0);
 	mlx_hook(s.win.ptr, KEY_PRESS, KEY_PRESS_MASK, key_press, &s);
 	mlx_loop(s.mlx);
@@ -104,12 +104,11 @@ void	ft_init(char *av1)//, int arg
 int		main(int ac, char **av)
 {
 	if (ac == 2 && ft_suffix(av[1], ".cub") == 1)
-		ft_init(av[1]);//, 0
+		ft_init(av[1], 0);
 	else if (ac == 3 && ft_suffix(av[1], ".cub") == 1 
 			&& ft_strncmp(av[2], "--save", 7) == 0)
-		ft_init(av[1]);//, 1
+		ft_init(av[1], 1);
 	else
 		write(2, "wrong arguments", 15);
-	while(1);
 	return (1);
 }

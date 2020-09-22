@@ -245,13 +245,13 @@ void				ft_print_arg(t_struct *s);
 void				print_map(t_struct *s);
 void				print_sprite(t_struct *s);
 
-/* wall_1.c */
+/* walls.c */
 void				ft_wall(t_struct *s);
 void				ft_ray_init(t_struct *s);
-void				ft_ray_direction(t_struct *s);
-void				ft_ray_hit(t_struct *s);
+void				ft_calculsd(t_struct *s);
+void				ft_hitwall(t_struct *s);
 
-/* wall_2.c */
+/* wallsii.c */
 void				ft_wall_size(t_struct *s);
 void				ft_wall_texture(t_struct *s);
 void				ft_draw_walls(t_struct *s);
@@ -264,14 +264,14 @@ void				ft_move_side(t_struct *s, double sign);
 void				ft_rotate(t_struct *s, double sign);
 void				ft_event(t_struct *s);
 
-/* sprite_1.c */
+/* sprite.c */
 void				ft_sprite(t_struct *s);
 void				ft_count_sprite(t_struct *s);
 void				ft_sprite_pos(t_struct *s);
 void				ft_sprite_distance(t_struct *s);
 void				ft_sort_sprite(t_struct *s);
 
-/* sprite_2.c */
+/* spriteii.c */
 void				ft_sprite_transform(t_struct *s);
 void				ft_sprite_size(t_struct *s);
 void				ft_draw_sprite(t_struct *s);

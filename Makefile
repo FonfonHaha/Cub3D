@@ -16,7 +16,8 @@ SRC		=   main.c \
             parse_map.c \
             utils.c \
             print.c \
-            utilsii.c 
+            utilsii.c \
+			bitmap.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 CC		= gcc
