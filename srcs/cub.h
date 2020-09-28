@@ -250,12 +250,12 @@ void				ft_wall(t_struct *s);
 void				ft_ray_init(t_struct *s);
 void				ft_calculsd(t_struct *s);
 void				ft_hitwall(t_struct *s);
+void			    ft_wallsize(t_struct *s);
 
 /* wallsii.c */
-void				ft_wall_size(t_struct *s);
-void				ft_wall_texture(t_struct *s);
-void				ft_draw_walls(t_struct *s);
-void				ft_pixel(t_struct *s);
+void    			ft_walltex(t_struct *s);
+void    			ft_drawwall(t_struct *s);
+void    			ft_pixel(t_struct *s);
 
 /* move.c */
 int					key_press(int key, t_struct *s);

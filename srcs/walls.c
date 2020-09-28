@@ -12,6 +12,27 @@
 
 #include "cub.h"
 
+void    ft_wallsize(t_struct *s)
+{
+    if (s->wall.side == 0)
+        s->wall.perp_dist = fabs((s->ray.pos.x - s->p.pos.x +
+            (1 - s->wall.step.x) / 2) / s->ray.dir.x);
+    else
+        s->Wall.perp_dist = fabs((s->ray.pos.y - s->p.pos.y +
+            (1 - s->wall.step.x) / 2) / s->ray.dir.y);
+    s->wall.buf[s->x] = s->wall.perp_dist;
+    s->wall.height = (int)(s->win.y / s->wall.perp_dist);
+    s->wall.start = -s->wall.height / 2 + s->win.y / 2;
+    s->wall.start = (s->wall.start > 0 ? s->wall.start : 0);
+    s->wall.end = s->wall.height / 2 + s->win.y / 2;
+    s->wall.end = (s->wall.end >= s->win.y ? s->win.y -1 : s->wall.end);
+    if (s->wall.side == 0)
+        s->wall.x = s->p.pos.y + s->wall.perp_dist * s->ray.dir.y;
+    else
+        s->wall.x = s->p.pos.x + s->wall.perp_dist * s->ray.dir.x;
+    s->wall.x -= floor(s->wall.x);
+}
+
 void    ft_hitwall(t_struct *s)
 {
     while (s->wall.hit == 0)
@@ -72,8 +93,12 @@ void    ft_wall(t_struct *s)
     while (x < s->win.x)
     {
         ft_rayinit(s);
-        rt_calculsd(s);
-        rt_hitwall(s);
+        ft_calculsd(s);
+        ft_hitwall(s);
+        ft_wallsize(s);
+        ft_walltex(s);
+        ft_drawwall(s);
         s->x++;
     }
+    ft_sprite(s);
 }
