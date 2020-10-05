@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/05 14:47:41 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/05 15:58:25 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void    ft_wallsize(t_struct *s)
             (1 - s->wall.step.x) / 2) / s->ray.dir.x);
     else
         s->wall.perp_dist = fabs((s->ray.pos.y - s->p.pos.y +
-            (1 - s->wall.step.x) / 2) / s->ray.dir.y);
+            (1 - s->wall.step.y) / 2) / s->ray.dir.y);
     s->wall.buf[s->x] = s->wall.perp_dist;
     s->wall.height = (int)(s->win.y / s->wall.perp_dist);
     s->wall.start = -s->wall.height / 2 + s->win.y / 2;

@@ -6,11 +6,26 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/05 14:21:27 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/05 16:02:23 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+void	ft_rotate(t_struct *s, double n)
+{
+	double olddx;
+	double oldpx;
+	double rot;
+
+	rot = ANGLE * n;
+	olddx = s->p.dir.x;
+	oldpx = s->p.plane.x;
+	s->p.dir.x = s->p.dir.x * cos(rot) - s->p.dir.y * sin(rot);
+	s->p.dir.y = olddx * sin(rot) + s->p.dir.y * cos(rot);
+	s->p.plane.x = s->p.plane.x * cos(rot) - s->p.plane.y * sin(rot);
+	s->p.plane.y = oldpx * sin(rot) + s->p.plane.y * cos(rot);
+}
 
 void    ft_movef(t_struct *s, double n)
 {

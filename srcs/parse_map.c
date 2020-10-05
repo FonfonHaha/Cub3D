@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/05 15:32:18 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	ft_check_map_char(t_struct *s, int x, int y)
 		x = 0;
 		while (s->map.tab[y][x])
 		{
-			if (s->map.tab[y][x] == '\n' || s->map.tab[y][x] == '\0')
-				x = x;
+		//	if (s->map.tab[y][x] == '\n' || s->map.tab[y][x] == '\0')
+		//		x = x;
 			if (ft_is_charset((char)s->map.tab[y][x], "NSEW 012") == 0)
 				return (ft_error(s, 9));
 			if (ft_is_charset(s->map.tab[y][x], "NSEW") == 1)
@@ -77,8 +77,8 @@ int		ft_check_map_borders(t_struct *s, int x, int y, char **map)
 {
 	int		len;
 
-	if (map[y])
-		len = ft_strlen(map[y]) ;
+	//if (map[y])
+	len = ft_strlen(map[y]) ;
 	if (x >= len)
 		return (-1);
 	if (x == -1 || y == -1 || y == s->map.h)
@@ -152,7 +152,6 @@ void	ft_get_pos(t_struct *s)
 	}
 }
 
-//apparemment il y a du leaks dedans
 
 void	ft_load_map(t_struct *s, char *str)
 {

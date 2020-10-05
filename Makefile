@@ -6,7 +6,7 @@
 #    By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/27 19:31:45 by pcoureau          #+#    #+#              #
-#    Updated: 2020/10/05 14:23:05 by paco             ###   ########.fr        #
+#    Updated: 2020/10/05 16:01:12 by paco             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC		=   main.c \
 			wallsii.c \
 			sprite.c \
 			spriteii.c \
+			move.c
 		
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
