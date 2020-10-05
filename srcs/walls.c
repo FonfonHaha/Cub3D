@@ -18,7 +18,7 @@ void    ft_wallsize(t_struct *s)
         s->wall.perp_dist = fabs((s->ray.pos.x - s->p.pos.x +
             (1 - s->wall.step.x) / 2) / s->ray.dir.x);
     else
-        s->Wall.perp_dist = fabs((s->ray.pos.y - s->p.pos.y +
+        s->wall.perp_dist = fabs((s->ray.pos.y - s->p.pos.y +
             (1 - s->wall.step.x) / 2) / s->ray.dir.y);
     s->wall.buf[s->x] = s->wall.perp_dist;
     s->wall.height = (int)(s->win.y / s->wall.perp_dist);
@@ -90,7 +90,7 @@ void    ft_rayinit(t_struct *s)
 void    ft_wall(t_struct *s)
 {
     s->x = 0;
-    while (x < s->win.x)
+    while (s->x < s->win.x)
     {
         ft_rayinit(s);
         ft_calculsd(s);

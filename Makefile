@@ -17,7 +17,11 @@ SRC		=   main.c \
             utils.c \
             print.c \
             utilsii.c \
-			bitmap.c
+			bitmap.c \
+			walls.c \
+			wallsii.c \
+			sprite.c \
+			spriteii.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 CC		= gcc

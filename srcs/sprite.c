@@ -12,6 +12,43 @@
 
 #include "cub.h"
 
+void    ft_spritetri(t_struct *s)
+{
+    int         i;
+    int         j;
+    t_sprite    tmp;
+
+    i = 0;
+    while (i < s->map.sprite_nb - 1)
+    {
+        j = i + 1;
+        while (j < s->map.sprite_nb)
+        {
+            if (s->sprite[i].dist < s->sprite[j].dist)
+            {
+                tmp = s->sprite[i];
+                s->sprite[i] = s->sprite[j];
+                s->sprite[j] = tmp;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void    ft_spritedist(t_struct *s)
+{
+    int i;
+
+    i = 0;
+    while (i < s->map.sprite_nb)
+    {
+        s->sprite[i].dist = hypot(s->p.pos.x - s->sprite[i].pos.x,
+            s->p.pos.y - s->sprite[i].pos.y);
+        i++;
+    }
+}
+
 void    ft_spritepos(t_struct *s)
 {
     int i;
@@ -63,5 +100,14 @@ void    ft_sprite(t_struct *s)
             ft_error(s, 1);
     }
     ft_spritepos(s);
-
+    ft_spritedist(s);
+    ft_spritetri(s);
+    s->i = 0;
+    while (s->i < s->map.sprite_nb)
+    {
+        ft_spritetrans(s);
+        ft_spritesize(s);
+        ft_drawsprite(s);
+        s->i++;
+    }
 }

@@ -209,7 +209,7 @@ typedef struct		s_struct
 
 
 /* main.c */
-void				ft_init(char *av1);//, int arg
+void				ft_init(char *av1, int arg);
 void				ft_init_ii(t_struct *s);
 void				ft_init_iii(t_struct *s);
 void				ft_init_raycasting_data(t_struct *s);
@@ -266,15 +266,15 @@ void				ft_event(t_struct *s);
 
 /* sprite.c */
 void				ft_sprite(t_struct *s);
-void				ft_count_sprite(t_struct *s);
-void				ft_sprite_pos(t_struct *s);
-void				ft_sprite_distance(t_struct *s);
-void				ft_sort_sprite(t_struct *s);
+void				ft_countsprite(t_struct *s);
+void				ft_spritepos(t_struct *s);
+void				ft_spritedis(t_struct *s);
+void				ft_spritetri(t_struct *s);
 
 /* spriteii.c */
-void				ft_sprite_transform(t_struct *s);
-void				ft_sprite_size(t_struct *s);
-void				ft_draw_sprite(t_struct *s);
+void				ft_spritetrans(t_struct *s);
+void				ft_spritesize(t_struct *s);
+void				ft_drawsprite(t_struct *s);
 
 /* bitmap.c */
 void			ft_bitmap(t_struct *s);

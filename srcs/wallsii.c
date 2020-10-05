@@ -51,8 +51,8 @@ void    ft_drawwall(t_struct *s)
 void    ft_walltex(t_struct *s)
 {
     s->tex.x = (int)(s->wall.x * s->tex.width);
-    if ((s->Wall.side == 0 && s->ray.dir.x > 0) ||
-        (s->wall.side == 1 && s->ray.dit.y < 0))
+    if ((s->wall.side == 0 && s->ray.dir.x > 0) ||
+        (s->wall.side == 1 && s->ray.dir.y < 0))
         s->tex.x = s->tex.width - s->tex.x - 1;
     s->tex.step = (double)s->tex.width / s->wall.height;
     s->tex.pos = (s->wall.start - s->win.y / 2 + s->wall.height / 2) * s->tex.step;
