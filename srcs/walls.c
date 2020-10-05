@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/05 14:47:41 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void    ft_wall(t_struct *s)
         ft_wallsize(s);
         ft_walltex(s);
         ft_drawwall(s);
+	printf("----------------TESTEST\ns wall x %f\ns tex x %d\ns tex y %d\n-----------\n",s->wall.x, s->tex.x, s->tex.y);
         s->x++;
     }
     ft_sprite(s);

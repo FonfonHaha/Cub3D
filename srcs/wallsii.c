@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/05 14:43:27 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,21 @@ void    ft_drawwall(t_struct *s)
         ft_pixel(s);
         s->y++;
     }
+    s->color = s->floor.r * pow(256, 2) + s->floor.g * 256 + s->floor.b;
+    while (s->y < s->win.y)
+	    s->img.adr[s->x + s->win.x * s->y++] = s->color;
 }
 
 void    ft_walltex(t_struct *s)
 {
     s->tex.x = (int)(s->wall.x * s->tex.width);
-    if ((s->wall.side == 0 && s->ray.dir.x > 0) ||
-        (s->wall.side == 1 && s->ray.dir.y < 0))
-        s->tex.x = s->tex.width - s->tex.x - 1;
+//    if ((s->wall.side == 0 && s->ray.dir.x > 0) ||
+//        (s->wall.side == 1 && s->ray.dir.y < 0))
+//        s->tex.x = s->tex.width - s->tex.x - 1;
+    if (s->wall.side == 0 && s->ray.dir.x > 0)
+	    s->tex.x = s->tex.width - s->tex.x-1;
+    if (s->wall.side == 1 && s->ray.dir.y < 0)
+	    s->tex.x = s->tex.width - s->tex.x -1;
     s->tex.step = (double)s->tex.width / s->wall.height;
     s->tex.pos = (s->wall.start - s->win.y / 2 + s->wall.height / 2) * s->tex.step;
 }

@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/05 14:21:27 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void    ft_movef(t_struct *s, double n)
 
 void    ft_moves(t_struct *s, double n)
 {
-    if (s->map.tab[(int)(s->p.pos.y)]
-        [(int)(s->p.pos.x + n * -s->p.dir.y *SPEED)] == '0')
-        s->p.pos.x += n * -s->p.dir.y * SPEED;
+	if (s->map.tab[(int)(s->p.pos.y)]
+		[(int)(s->p.pos.x + n * -s->p.dir.y *SPEED)] == '0')
+        	s->p.pos.x += n * -s->p.dir.y * SPEED;
 	if (s->map.tab[(int)(s->p.pos.y + n * s->p.dir.x * SPEED)]
-			[(int)s->p.pos.x] == '0')
+		[(int)s->p.pos.x] == '0')
 		s->p.pos.y += n * s->p.dir.x * SPEED;
 }
 
