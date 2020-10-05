@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/05 15:58:25 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/05 16:33:02 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,13 @@ void    ft_calculsd(t_struct *s)
     } else
     {
         s->wall.step.y = 1;
-        s->ray.sd.y = (s->ray.pos.x + 1 - s->p.pos.y) * s->ray.dd.y;
+        s->ray.sd.y = (s->ray.pos.y + 1 - s->p.pos.y) * s->ray.dd.y;
     }
 }
 
 void    ft_rayinit(t_struct *s)
 {
-    s->cam = 2 * s->x / s->win.x - 1;
+    s->cam = 2 * s->x / (double)s->win.x - 1;
     s->ray.dir.x = s->p.dir.x + s->p.plane.x * s->cam;
     s->ray.dir.y = s->p.dir.y + s->p.plane.y * s->cam;
     s->ray.dd.x = s->ray.dir.y == 0 ? 0 : ((s->ray.dir.x == 0 ? 1 : fabs(1 / s->ray.dir.x)));
@@ -98,7 +98,7 @@ void    ft_wall(t_struct *s)
         ft_wallsize(s);
         ft_walltex(s);
         ft_drawwall(s);
-	printf("----------------TESTEST\ns wall x %f\ns tex x %d\ns tex y %d\n-----------\n",s->wall.x, s->tex.x, s->tex.y);
+//	printf("----------------TESTEST\ns wall x %f\ns tex x %d\ns tex y %d\n-----------\n",s->wall.x, s->tex.x, s->tex.y);
         s->x++;
     }
     ft_sprite(s);
