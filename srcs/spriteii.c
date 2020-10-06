@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/06 13:37:12 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,34 +43,35 @@ void    ft_drawsprite(t_struct *s)
 
 void    ft_spritesize(t_struct *s)
 {
-	s->sprite[s->i].height = abs((int)(s->win.y / s->sprite[s->i].depth.y));
-	s->sprite[s->i].start.y = (s->win.y / 2) - (s->sprite[s->i].height / 2);
-	if (s->sprite[s->i].start.y < 0)
-		s->sprite[s->i].start.y = 0;
-	s->sprite[s->i].end.y = (s->win.y / 2) + (s->sprite[s->i].height / 2);
-	if (s->sprite[s->i].end.y >= s->win.y)
-		s->sprite[s->i].end.y = s->win.y - 1;
-	s->sprite[s->i].width = abs((int)(s->win.y / s->sprite[s->i].depth.y));
-	s->sprite[s->i].start.x = s->sprite[s->i].screen - (s->sprite[s->i].width / 2);
-	if (s->sprite[s->i].start.x < 0)
-		s->sprite[s->i].start.x = 0;
-	s->sprite[s->i].end.x = s->sprite[s->i].screen + s->sprite[s->i].width / 2;
-	if (s->sprite[s->i].end.x >= s->win.x)
-		s->sprite[s->i].end.x = s->win.x - 1;
+    s->sprite[s->i].height = abs((int)(s->win.y / s->sprite[s->i].depth.y));
+    s->sprite[s->i].start.y = (s->win.y / 2) - (s->sprite[s->i].height / 2);
+    if (s->sprite[s->i].start.y < 0)
+        s->sprite[s->i].start.y = 0;
+    s->sprite[s->i].end.y = (s->win.y /2) + (s->sprite[s->i].height / 2);
+    if (s->sprite[s->i].end.y >= s->win.y)
+        s->sprite[s->i].end.y = s->win.y - 1;
+    s->sprite[s->i].width = abs((int)(s->win.y / s->sprite[s->i].depth.y));
+    s->sprite[s->i].start.x = s->sprite[s->i].screen
+        - (s->sprite[s->i].width / 2);
+    if (s->sprite[s->i].start.x < 0)
+        s->sprite[s->i].start.x = 0;
+    s->sprite[s->i].end.x = s->sprite[s->i].screen + s->sprite[s->i].width / 2;
+    if (s->sprite[s->i].end.x >= s->win.x)
+        s->sprite[s->i].end.x = s->win.x - 1;
 }
 
 void    ft_spritetrans(t_struct *s)
 {
-	double	n;
+    double  n;
 
-	n = 0.0;
-	s->sprite[s->i].delta.x = s->sprite[s->i].pos.x - s->p.pos.x;
-	s->sprite[s->i].delta.y = s->sprite[s->i].pos.y - s->p.pos.y;
-	n = 1.0 / (s->p.plane.x * s->p.dir.y - s->p.plane.y * s->p.dir.x);
-	s->sprite[s->i].depth.x = n * (s->p.dir.y  * s->sprite[s->i].delta.x 
-			- s->p.dir.x * s->sprite[s->i].delta.y);
-	s->sprite[s->i].depth.y = n * (s->p.plane.x  * s->sprite[s->i].delta.y -
-			s->p.plane.y  * s->sprite[s->i].delta.x);
-	s->sprite[s->i].screen = (int)((s->win.x / 2) * 
-		(1 + s->sprite[s->i].depth.x / s->sprite[s->i].depth.y));
+    n = 0.0;
+    s->sprite[s->i].delta.x = s->sprite[s->i].pos.x - s->p.pos.x;
+    s->sprite[s->i].delta.y = s->sprite[s->i].pos.y - s->p.pos.y;
+    n = 1.0 / (s->p.plane.x * s->p.dir.y - s->p.plane.y * s->p.dir.x);
+    s->sprite[s->i].depth.x = n * (s->p.dir.y  * s->sprite[s->i].delta.x 
+        - s->p.dir.x * s->sprite[s->i].delta.y);
+    s->sprite[s->i].depth.y = n * (s->p.plane.x  * s->sprite[s->i].delta.y -
+        s->p.plane.y  * s->sprite[s->i].delta.x);
+    s->sprite[s->i].screen = (int)((s->win.x / 2) * 
+        (1 + s->sprite[s->i].depth.x / s->sprite[s->i].depth.y));
 }

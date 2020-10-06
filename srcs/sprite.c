@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/06 13:59:30 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void    ft_spritepos(t_struct *s)
                 if (s->map.tab[s->y][s->x] == '2')
                 {
                     s->sprite[i].pos.x = s->x + 0.5;
-                    s->sprite[i].pos.x = s->y + 0.5;
+                    s->sprite[i].pos.y = s->y + 0.5;
                     i++;
                 }
                 s->x++;
