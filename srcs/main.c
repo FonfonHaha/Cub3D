@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/05 16:02:57 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/06 18:50:05 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_init(char *av1, int arg)
 	s.cub = ft_strdup(av1);
 	s.mlx = mlx_init();
 	ft_init_ii(&s);
-	ft_init_iii(&s);
+    ft_init_iii(&s);
 	ft_parse(&s);
 	ft_init_rc_data(&s);
 	s.img.ptr = mlx_new_image(s.mlx, s.win.x, s.win.y);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_2.c                                          :+:      :+:    :+:   */
+/*   utilsii.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/06 18:50:16 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@ int		ft_exit(t_struct *s)
 	int	i;
 
 	i = 0;
+    i++;
+    s->x = i;
 	while (s->map.tab[i])
 		free(s->map.tab[i++]);
 	free(s->cub);
 	free(s->wall.buf);
-	free(s->tex.n);
-	free(s->tex.s);
-	free(s->tex.e);
-	free(s->tex.w);
-	free(s->tex.sprite);
 	exit(0);
 }
 
