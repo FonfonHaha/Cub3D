@@ -239,6 +239,7 @@ char				**new_tab(t_struct *s, char **tab, char *str);
 int					ft_exit(t_struct *s);
 void				ft_error(t_struct *s, int err);
 int					ft_check_parsing(t_struct *s);
+void				ft_resolutionii(t_struct *s, int n);
 
 /* print.c */
 void				ft_print_arg(t_struct *s);

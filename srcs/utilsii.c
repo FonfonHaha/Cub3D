@@ -59,3 +59,25 @@ int		ft_check_parsing(t_struct *s)
 	else
 		return (1);
 }
+
+void		ft_resolutionii(t_struct *s, int n)
+{
+	int	x;
+	int	y;
+
+	if (n)
+	{
+		s->win.x = (s->win.x <= 0 ? WIDTH : s->win.x);
+		s->win.x = (s->win.x > WIDTH ? WIDTH : s->win.x);
+		s->win.y = (s->win.y <= 0 ? HEIGHT : s->win.y);
+		s->win.y = (s->win.y > HEIGHT ? HEIGHT : s->win.y);
+	}
+	else
+	{
+		mlx_get_screen_size(s->mlx, &x, &y);
+		s->win.x = (s->win.x <= 0 ? x : s->win.x);
+		s->win.x = (s->win.x > x ? x : s->win.x);
+		s->win.y = (s->win.y <= 0 ? y : s->win.y);
+		s->win.y = (s->win.y > y ? y : s->win.y);
+	}
+}

@@ -86,17 +86,16 @@ void			ft_resolution(t_struct *s, char *line)
     }
 	s->win.x = ft_atoi((const char *)tab[0]);
 	s->win.y = ft_atoi((const char *)tab[1]);
-	s->win.x = (s->win.x <= 0 ? WIDTH : s->win.x);
-	s->win.x = (s->win.x > WIDTH ? WIDTH : s->win.x);
-	s->win.y = (s->win.y <= 0 ? HEIGHT : s->win.y);
-	s->win.y = (s->win.y > HEIGHT ? HEIGHT : s->win.y);
+	/*
+	** ft_resolutionii(s, 1);
+	*/
+	ft_resolutionii(s, 0);
 	while (i >= 0)
 		free(tab[i--]);
 	s->parse.res++;
 	free(tab);
 }
 
-/* read line to know which map description it is */
 void	ft_read_line(t_struct *s, char *line)
 {
 	ft_skip_space(s, line);
