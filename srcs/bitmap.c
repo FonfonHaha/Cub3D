@@ -12,7 +12,7 @@
 
 #include "cub.h"
 
-void			ft_set_int_to_char(unsigned char *start, int value)
+void				ft_set_int_to_char(unsigned char *start, int value)
 {
 	start[0] = (unsigned char)(value);
 	start[1] = (unsigned char)(value >> 8);
@@ -83,7 +83,7 @@ unsigned char		*ft_bmp_file_header(t_struct *s)
 	return (file_header);
 }
 
-void			ft_bitmap(t_struct *s)
+void				ft_bitmap(t_struct *s)
 {
 	int				fd;
 	int				pixel_array_size;
