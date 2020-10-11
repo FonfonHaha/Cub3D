@@ -14,7 +14,7 @@
 
 int		ft_is_space(char c)
 {
-	if (c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f' 
+	if (c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f'
 			|| c == ' ')
 		return (1);
 	return (0);
@@ -28,8 +28,9 @@ void	ft_skip_space(t_struct *s, char *line)
 
 int		ft_is_charset(char c, char *set)
 {
-	int	i = 0;
+	int	i;
 
+	i = 0;
 	while (set[i] != '\0')
 	{
 		if (c == set[i])
@@ -52,9 +53,7 @@ int		ft_suffix(char *file_name, char *suffix)
 	return (0);
 }
 
-/* 16 bytes de leaks dans cette fonction... */
-//Je crois quon utilise pas cette fonction
-char	**new_tab(t_struct *s, char **tab, char *str)
+char	**ft_new_tab(t_struct *s, char **tab, char *str)
 {
 	char	**new_tab;
 	int		n;

@@ -12,7 +12,6 @@
 
 #include "cub.h"
 
-/* parse input line and return struct with RGB color */
 t_color			ft_color(t_struct *s, char *line)
 {
 	t_color			color;
@@ -39,7 +38,6 @@ t_color			ft_color(t_struct *s, char *line)
 	return (color);
 }
 
-/* return ptr to tex img imported in mlx(cast in unsigned int to modify it) */
 unsigned int	*ft_load_tex(t_struct *s, char *line)
 {
 	void			*ptr;
@@ -78,17 +76,14 @@ void			ft_resolution(t_struct *s, char *line)
 	while (tab[i])
 		i++;
 	if (i != 2)
-    {
-	    while (i >= 0)
-		    free(tab[i--]);
-        free(tab);
-	    ft_error(s, 3);
-    }
+	{
+		while (i >= 0)
+			free(tab[i--]);
+		free(tab);
+		ft_error(s, 3);
+	}
 	s->win.x = ft_atoi((const char *)tab[0]);
 	s->win.y = ft_atoi((const char *)tab[1]);
-	/*
-	** ft_resolutionii(s, 1);
-	*/
 	ft_resolutionii(s, 0);
 	while (i >= 0)
 		free(tab[i--]);
@@ -96,7 +91,11 @@ void			ft_resolution(t_struct *s, char *line)
 	free(tab);
 }
 
-void	ft_read_line(t_struct *s, char *line)
+/*
+**	ft_resolutionii(s, 1); for mac
+*/
+
+void			ft_read_line(t_struct *s, char *line)
 {
 	ft_skip_space(s, line);
 	if (line[s->i] == 'R' && line[s->i + 1] == ' ')
@@ -115,25 +114,21 @@ void	ft_read_line(t_struct *s, char *line)
 		s->floor = ft_color(s, &line[s->i]);
 	if (line[s->i] == 'C' && line[s->i + 1] == ' ')
 		s->sky = ft_color(s, &line[s->i]);
-	return;
+	return ;
 }
 
-/* read map file, parse until the end, check errors */
 void			ft_parse(t_struct *s)
 {
 	char		*line;
 	int			fd;
 
-	line = NULL;
 	if (!(fd = open(s->cub, O_RDONLY)))
 		ft_error(s, 8);
 	while (get_next_line(fd, &line) == 1)
 	{
 		s->i = 0;
 		if (ft_check_parsing(s) == 1)
-		{
 			ft_load_map(s, line);
-		}
 		else
 		{
 			ft_read_line(s, line);

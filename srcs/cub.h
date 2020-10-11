@@ -233,7 +233,7 @@ int					ft_is_space(char c);
 void				ft_skip_space(t_struct *s, char *line);
 int					ft_is_charset(char c, char *set);
 int					ft_suffix(char *file_name, char *suffix);
-char				**new_tab(t_struct *s, char **tab, char *str);
+char				**ft_new_tab(t_struct *s, char **tab, char *str);
 
 /* utilsii.c */
 int					ft_exit(t_struct *s);

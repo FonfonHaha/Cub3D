@@ -17,8 +17,8 @@ int		ft_exit(t_struct *s)
 	int	i;
 
 	i = 0;
-    i++;
-    s->x = i;
+	i++;
+	s->x = i;
 	while (s->map.tab[i])
 		free(s->map.tab[i++]);
 	free(s->cub);
@@ -28,7 +28,7 @@ int		ft_exit(t_struct *s)
 
 void	ft_error(t_struct *s, int err)
 {
-	(err == 1) ? ft_putstr_fd("Error : calloc fail\n", 2) : 0 ;
+	(err == 1) ? ft_putstr_fd("Error : calloc fail\n", 2) : 0;
 	(err == 2) ? ft_putstr_fd("Error : wrong map file extension\n", 2) : 0;
 	(err == 3) ? ft_putstr_fd("Error : wrong resolution description\n", 2) : 0;
 	(err == 4) ?
@@ -52,15 +52,15 @@ void	ft_error(t_struct *s, int err)
 int		ft_check_parsing(t_struct *s)
 {
 	if ((s->win.x == 0 || s->win.y == 0 || s->tex.n == 0 || s->tex.s == 0 ||
-		s->tex.w == 0 || s->tex.e == 0 || s->tex.sprite == 0 ||
-		s->floor.r == -1 || s->floor.g == -1 || s->floor.b == -1 ||
-		s->sky.r == -1 || s->sky.g == -1 || s->sky.b == -1))
+				s->tex.w == 0 || s->tex.e == 0 || s->tex.sprite == 0 ||
+				s->floor.r == -1 || s->floor.g == -1 || s->floor.b == -1 ||
+				s->sky.r == -1 || s->sky.g == -1 || s->sky.b == -1))
 		return (-1);
 	else
 		return (1);
 }
 
-void		ft_resolutionii(t_struct *s, int n)
+void	ft_resolutionii(t_struct *s, int n)
 {
 	int	x;
 	int	y;
