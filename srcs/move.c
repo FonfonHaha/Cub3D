@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/15 23:44:34 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/16 00:24:51 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,17 @@ int     ft_move(t_struct *s)
     if (s->keys.esc)
         exit(0);
     if (s->keys.w)
-        ft_movef(s, 1);
+        ft_movef(s, 0.5);
     if (s->keys.s)
-        ft_movef(s, -1);
+        ft_movef(s, -0.5);
     if (s->keys.a)
-        ft_moves(s, -1);
+        ft_moves(s, -0.5);
     if (s->keys.d)
-        ft_moves(s, 1);
+        ft_moves(s, 0.5);
     if (s->keys.left)
-        ft_rotate(s, -1);
+        ft_rotate(s, -0.5);
     if (s->keys.right)
-        ft_rotate(s, 1);
+        ft_rotate(s, 0.5);
     ft_display(s);
     return (0);
 }
