@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/06 18:50:16 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/15 14:56:29 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_error(t_struct *s, int err)
 	(err == 10) ? ft_putstr_fd("Error : multiple starting position\n", 2) : 0;
 	(err == 11) ? ft_putstr_fd("Error : map is not closed\n", 2) : 0;
 	(err == 12) ?
-		ft_putstr_fd("Error : Error : texture image is not a square\n", 2) : 0;
+		ft_putstr_fd("Error : Wrong texture\n", 2) : 0;
 	(err == 13) ?
 		ft_putstr_fd("Error : duplicated element description\n", 2) : 0;
 	exit(0);
