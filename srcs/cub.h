@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:51:38 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:08 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/15 18:21:28 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,6 +256,13 @@ void				ft_init(char *av1, int arg);
 void				ft_init_ii(t_struct *s);
 void				ft_init_iii(t_struct *s);
 void				ft_init_raycasting_data(t_struct *s);
+
+/*
+** key_minimize.c
+*/
+int                 ft_minimize(t_struct *s);
+
+
 
 /*
 ** parse.c

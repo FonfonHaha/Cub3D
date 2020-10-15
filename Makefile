@@ -6,12 +6,13 @@
 #    By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/27 19:31:45 by pcoureau          #+#    #+#              #
-#    Updated: 2020/10/15 14:35:53 by paco             ###   ########.fr        #
+#    Updated: 2020/10/15 18:08:13 by paco             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= cub3D
 SRC		=   main.c \
+			key_minimize.c \
             parse.c \
             parse_map.c \
             utils.c \
