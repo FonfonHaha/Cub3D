@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/05 16:02:23 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/15 23:44:34 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,23 @@ void	ft_moves(t_struct *s, double n)
 		s->p.pos.y += n * s->p.dir.x * SPEED;
 }
 
-int		key_press(int key, t_struct *s)
+int     ft_move(t_struct *s)
 {
-	if (key == ESC)
-		ft_exit(s);
-	else if (key == KEY_A)
-		ft_moves(s, -1);
-	else if (key == KEY_S)
-		ft_movef(s, -1);
-	else if (key == KEY_D)
-		ft_moves(s, 1);
-	else if (key == KEY_W)
-		ft_movef(s, 1);
-	else if (key == KEY_LEFT)
-		ft_rotate(s, -1);
-	else if (key == KEY_RIGHT)
-		ft_rotate(s, 1);
-	ft_wall(s);
-	mlx_put_image_to_window(s->mlx, s->win.ptr, s->img.ptr, 0, 0);
-	return (1);
+    if (s->keys.esc)
+        exit(0);
+    if (s->keys.w)
+        ft_movef(s, 1);
+    if (s->keys.s)
+        ft_movef(s, -1);
+    if (s->keys.a)
+        ft_moves(s, -1);
+    if (s->keys.d)
+        ft_moves(s, 1);
+    if (s->keys.left)
+        ft_rotate(s, -1);
+    if (s->keys.right)
+        ft_rotate(s, 1);
+    ft_display(s);
+    return (0);
 }
+

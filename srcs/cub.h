@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:51:38 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/15 18:21:28 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/15 23:29:05 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +222,18 @@ typedef struct		s_parsing
 	int				color;
 }					t_parsing;
 
+typedef struct      s_keys
+{
+    int             esc;
+    int             a;
+    int             s;
+    int             d;
+    int             w;
+    int             left;
+    int             right;
+}                   t_keys;
+
+
 /*
 ** cam = x cam coordinate, -1 = left, 0 = center, 1 = right
 ** color = the color of the pixel
@@ -241,6 +253,7 @@ typedef struct		s_struct
 	t_ray			ray;
 	t_wall			wall;
 	t_sprite		*sprite;
+    t_keys          keys;
 	double			cam;
 	unsigned int	color;
 	char			*cub;
@@ -260,8 +273,10 @@ void				ft_init_raycasting_data(t_struct *s);
 /*
 ** key_minimize.c
 */
-int                 ft_minimize(t_struct *s);
-
+int                 ft_display(t_struct *s);
+int                 ft_keypress(int k, void *s);
+int                 ft_key_act_deact(t_struct *s, int k, int n);
+int                 ft_keyrelease(int k, void *s);
 
 
 /*
@@ -325,6 +340,7 @@ void				ft_pixel(t_struct *s);
 /*
 ** move.c
 */
+int                 ft_move(t_struct *s);
 int					key_press(int key, t_struct *s);
 void				ft_move_forward(t_struct *s, double sign);
 void				ft_move_side(t_struct *s, double sign);

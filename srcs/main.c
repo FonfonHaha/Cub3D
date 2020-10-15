@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/15 18:42:14 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/15 23:32:30 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ void	ft_init_iii(t_struct *s)
 	s->parse.color = 0;
 	s->parse.res = 0;
 	s->x = 0;
+    s->keys.a = 0;
+    s->keys.s = 0;
+    s->keys.d = 0;
+    s->keys.w = 0;
+    s->keys.esc = 0;
+    s->keys.left = 0;
+    s->keys.right = 0;
 }
 
 void	ft_init_ii(t_struct *s)
@@ -93,10 +100,13 @@ void	ft_init(char *av1, int arg)
 	s.win.ptr = mlx_new_window(s.mlx, s.win.x, s.win.y, WIN_NAME);
 	ft_wall(&s);
 	mlx_put_image_to_window(s.mlx, s.win.ptr, s.img.ptr, 0, 0);
+    mlx_hook(s.win.ptr, 2, 1L, &ft_keypress, &s);
+    mlx_hook(s.win.ptr, 3, 2L, &ft_keyrelease, &s);
     mlx_hook(s.win.ptr, 17, 1L << 17, &ft_exit, &s);
     mlx_hook(s.win.ptr, 33, 1L << 17, &ft_exit, &s);
-    mlx_expose_hook(s.win.ptr, &ft_minimize, &s);
-	mlx_hook(s.win.ptr, KEY_PRESS, KEY_PRESS_MASK, key_press, &s);
+    mlx_expose_hook(s.win.ptr, &ft_display, &s);
+    mlx_loop_hook(s.mlx, &ft_move, &s);
+	//mlx_hook(s.win.ptr, KEY_PRESS, KEY_PRESS_MASK, key_press, &s);
 	mlx_loop(s.mlx);
 	return ;
 }
