@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/15 18:20:53 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/15 18:42:14 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ int		main(int ac, char **av)
 			&& ft_strncmp(av[2], "--save", 7) == 0)
 		ft_init(av[1], 1);
 	else
-		write(2, "wrong arguments", 15);
+		write(2, "wrong arguments\n", 16);
 	return (1);
 }

@@ -1,11 +1,11 @@
-R  500 300
+R  !000 750
 F 191  ,  191 ,  191
 C 5,225 ,225  
-NO ./images/brick.xpm
+NO ./images/brick2.xpm
 SO    ./images/grey.xpm
 WE   ./images/floor.xpm
 EA    ./images/wood.xpm
-S ./images/barrel.xpm
+S ./images/chest.xpm
 
         111111111111111111111111
         1000000000110000000000001
