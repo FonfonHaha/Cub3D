@@ -10,74 +10,74 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx-linux/mlx.h"
-#include "../libft/libft.h"
+#ifndef CUB_H
+# define CUB_H
+# include "../minilibx-linux/mlx.h"
+# include "../libft/libft.h"
 
-#include <stdlib.h>
-#include <math.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <string.h>
+# include <stdlib.h>
+# include <math.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <string.h>
 
 /*
 **	keys mac**
-** #define ESC 53
-** #define KEY_W 13
-** #define KEY_A 0
-** #define KEY_S 1
-** #define KEY_D 2
-** #define KEY_UP 126
-** #define KEY_DOWN 125
-** #define KEY_LEFT 123
-** #define KEY_RIGHT 124
+** # define ESC 53
+** # define KEY_W 13
+** # define KEY_A 0
+** # define KEY_S 1
+** # define KEY_D 2
+** # define KEY_UP 126
+** # define KEY_DOWN 125
+** # define KEY_LEFT 123
+** # define KEY_RIGHT 124
 */
 
 /*
 **	keys linux**
 */
-#define ESC 65307
-#define KEY_W 119
-#define KEY_A 97
-#define KEY_S 115
-#define KEY_D 100
-#define KEY_UP 65362
-#define KEY_DOWN 65364
-#define KEY_LEFT 65361
-#define KEY_RIGHT 65363
+# define ESC 65307
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
 
 /*
 ** keys pre-setted values mapping LibX Functions
 */
-#define KEY_PRESS 2
-#define KEY_RELEASE 3
-#define KEY_PRESS_MASK (1L<<0)
-#define KEY_RELEASE_MASK (1L<<1)
+# define KEY_PRESS 2
+# define KEY_RELEASE 3
 
 /*
 **	colors
 */
-#define WHITE 0x00FFFFFF
-#define BLACK 0x00000000
-#define RED 0x00FF0000
-#define BLUE 0x000000FF
-#define YELLOW 0x00FFFF00
-#define PINK 9961608
+# define WHITE 0x00FFFFFF
+# define BLACK 0x00000000
+# define RED 0x00FF0000
+# define BLUE 0x000000FF
+# define YELLOW 0x00FFFF00
+# define PINK 9961608
 
 /*
 ** windows
 */
-#define WIDTH 1280
-#define HEIGHT 680
-#define WIN_NAME "Cub3D"
-#define BPP 4
+# define WIDTH 1280
+# define HEIGHT 680
+# define WIN_NAME "Cub3D"
+# define BPP 4
 
 /*
 ** moves settings
 */
-#define SPEED 0.2
-#define ANGLE 0.1
-#define FOV 0.7
+# define SPEED 0.2
+# define ANGLE 0.1
+# define FOV 0.7
 
 typedef struct		s_xy
 {
@@ -222,23 +222,22 @@ typedef struct		s_parsing
 	int				color;
 }					t_parsing;
 
-typedef struct      s_keys
+typedef struct		s_keys
 {
-    int             esc;
-    int             a;
-    int             s;
-    int             d;
-    int             w;
-    int             left;
-    int             right;
-}                   t_keys;
+	int				esc;
+	int				a;
+	int				s;
+	int				d;
+	int				w;
+	int				left;
+	int				right;
+}					t_keys;
 
-typedef struct      s_ptr_img
+typedef struct		s_ptr_img
 {
-    int             i;
-    void            *ptr[10];
-}                   t_ptr_img;
-
+	int				i;
+	void			*ptr[10];
+}					t_ptr_img;
 
 /*
 ** cam = x cam coordinate, -1 = left, 0 = center, 1 = right
@@ -259,8 +258,8 @@ typedef struct		s_struct
 	t_ray			ray;
 	t_wall			wall;
 	t_sprite		*sprite;
-    t_keys          keys;
-    t_ptr_img       ptrimg;
+	t_keys			keys;
+	t_ptr_img		ptrimg;
 	double			cam;
 	unsigned int	color;
 	char			*cub;
@@ -280,11 +279,10 @@ void				ft_init_raycasting_data(t_struct *s);
 /*
 ** key_minimize.c
 */
-int                 ft_display(t_struct *s);
-int                 ft_keypress(int k, void *s);
-int                 ft_key_act_deact(t_struct *s, int k, int n);
-int                 ft_keyrelease(int k, void *s);
-
+int					ft_display(t_struct *s);
+int					ft_keypress(int k, void *s);
+int					ft_key_act_deact(t_struct *s, int k, int n);
+int					ft_keyrelease(int k, void *s);
 
 /*
 ** parse.c
@@ -347,7 +345,7 @@ void				ft_pixel(t_struct *s);
 /*
 ** move.c
 */
-int                 ft_move(t_struct *s);
+int					ft_move(t_struct *s);
 int					key_press(int key, t_struct *s);
 void				ft_move_forward(t_struct *s, double sign);
 void				ft_move_side(t_struct *s, double sign);
@@ -378,3 +376,4 @@ unsigned char		*ft_bmp_file_header(t_struct *s);
 unsigned char		*ft_bmp_dib_header(t_struct *s);
 unsigned char		*ft_bmp_pixel_array(t_struct *s);
 void				ft_set_int_to_char(unsigned char *start, int value);
+#endif

@@ -29,14 +29,14 @@ void	ft_init_iii(t_struct *s)
 	s->parse.color = 0;
 	s->parse.res = 0;
 	s->x = 0;
-    s->keys.a = 0;
-    s->keys.s = 0;
-    s->keys.d = 0;
-    s->keys.w = 0;
-    s->keys.esc = 0;
-    s->keys.left = 0;
-    s->keys.right = 0;
-    s->ptrimg.i = 0;
+	s->keys.a = 0;
+	s->keys.s = 0;
+	s->keys.d = 0;
+	s->keys.w = 0;
+	s->keys.esc = 0;
+	s->keys.left = 0;
+	s->keys.right = 0;
+	s->ptrimg.i = 0;
 }
 
 void	ft_init_ii(t_struct *s)
@@ -95,19 +95,18 @@ void	ft_init(char *av1, int arg)
 	ft_init_rc_data(&s);
 	s.img.ptr = mlx_new_image(s.mlx, s.win.x, s.win.y);
 	s.img.adr = (unsigned int*)mlx_get_data_addr(s.img.ptr,
-		&tab[0], &tab[1], &tab[2]);
+			&tab[0], &tab[1], &tab[2]);
 	if (arg == 1)
 		ft_bitmap(&s);
 	s.win.ptr = mlx_new_window(s.mlx, s.win.x, s.win.y, WIN_NAME);
 	ft_wall(&s);
 	mlx_put_image_to_window(s.mlx, s.win.ptr, s.img.ptr, 0, 0);
-    mlx_hook(s.win.ptr, 2, 1L, &ft_keypress, &s);
-    mlx_hook(s.win.ptr, 3, 2L, &ft_keyrelease, &s);
-    mlx_hook(s.win.ptr, 17, 1L << 17, &ft_exit, &s);
-    mlx_hook(s.win.ptr, 33, 1L << 17, &ft_exit, &s);
-    mlx_expose_hook(s.win.ptr, &ft_display, &s);
-    mlx_loop_hook(s.mlx, &ft_move, &s);
-	//mlx_hook(s.win.ptr, KEY_PRESS, KEY_PRESS_MASK, key_press, &s);
+	mlx_hook(s.win.ptr, 2, 1L, &ft_keypress, &s);
+	mlx_hook(s.win.ptr, 3, 2L, &ft_keyrelease, &s);
+	mlx_hook(s.win.ptr, 17, 1L << 17, &ft_exit, &s);
+	mlx_hook(s.win.ptr, 33, 1L << 17, &ft_exit, &s);
+	mlx_expose_hook(s.win.ptr, &ft_display, &s);
+	mlx_loop_hook(s.mlx, &ft_move, &s);
 	mlx_loop(s.mlx);
 	return ;
 }

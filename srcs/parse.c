@@ -59,8 +59,7 @@ unsigned int	*ft_load_tex(t_struct *s, char *line)
 	s->tex.width = tmp[0];
 	adr = (unsigned int*)mlx_get_data_addr(ptr, &tmp[2], &tmp[3], &tmp[4]);
 	s->ptrimg.ptr[s->ptrimg.i] = ptr;
-    s->ptrimg.i++;
-    //free(ptr);
+	s->ptrimg.i++;
 	free(tab[0]);
 	free(tab);
 	s->parse.tex++;

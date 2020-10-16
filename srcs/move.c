@@ -50,23 +50,22 @@ void	ft_moves(t_struct *s, double n)
 		s->p.pos.y += n * s->p.dir.x * SPEED;
 }
 
-int     ft_move(t_struct *s)
+int		ft_move(t_struct *s)
 {
-    if (s->keys.esc)
-        exit(0);
-    if (s->keys.w)
-        ft_movef(s, 0.5);
-    if (s->keys.s)
-        ft_movef(s, -0.5);
-    if (s->keys.a)
-        ft_moves(s, -0.5);
-    if (s->keys.d)
-        ft_moves(s, 0.5);
-    if (s->keys.left)
-        ft_rotate(s, -0.5);
-    if (s->keys.right)
-        ft_rotate(s, 0.5);
-    ft_display(s);
-    return (0);
+	if (s->keys.esc)
+		exit(0);
+	if (s->keys.w)
+		ft_movef(s, 0.5);
+	if (s->keys.s)
+		ft_movef(s, -0.5);
+	if (s->keys.a)
+		ft_moves(s, -0.5);
+	if (s->keys.d)
+		ft_moves(s, 0.5);
+	if (s->keys.left)
+		ft_rotate(s, -0.5);
+	if (s->keys.right)
+		ft_rotate(s, 0.5);
+	ft_display(s);
+	return (0);
 }
-

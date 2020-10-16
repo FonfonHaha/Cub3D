@@ -16,10 +16,10 @@
 # include <unistd.h>
 # include "libft.h"
 
-char    *ft_strjoingnl(char const *s1, char const *s2);
-int     ft_strchrbn(const char *s);
-char    *ft_strdcpy(const char *s);
-char    *ft_strdupgnl(const char *s);
-int     ft_strlengnl(char const *s);
+char	*ft_strjoingnl(char const *s1, char const *s2);
+int		ft_strchrbn(const char *s);
+char	*ft_strdcpy(const char *s);
+char	*ft_strdupgnl(const char *s);
+int		ft_strlengnl(char const *s);
 
 #endif

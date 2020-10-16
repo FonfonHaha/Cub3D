@@ -91,8 +91,6 @@ void	ft_rayinit(t_struct *s)
 		s->ray.dd.y = 0;
 	else
 		s->ray.dd.y = s->ray.dir.y == 0 ? 1 : fabs(1 / s->ray.dir.y);
-	//s->ray.dd.x = s->ray.dir.y == 0 ? 0 : ((s->ray.dir.x == 0 ? 1 : fabs(1 / s->ray.dir.x)));
-	//s->ray.dd.y = s->ray.dir.x == 0 ? 0 : ((s->ray.dir.y == 0 ? 1 : fabs(1 / s->ray.dir.y)));
 	s->ray.pos.x = (int)s->p.pos.x;
 	s->ray.pos.y = (int)s->p.pos.y;
 	s->wall.hit = 0;

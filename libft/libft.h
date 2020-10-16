@@ -23,12 +23,11 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
-# define MALLCHECK(x) if (!x) return (-1);
 
 typedef struct	s_list
 {
-		void			*content;
-		struct s_list	*next;
+	void			*content;
+	struct s_list	*next;
 }				t_list;
 
 void			*ft_memset(void *ptr, int c, size_t n);
@@ -74,13 +73,13 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-				void (*del)(void *));
+		void (*del)(void *));
 
 typedef struct	s_gnl
 {
-		int				ret;
-		int				i;
-		int				j;
+	int				ret;
+	int				i;
+	int				j;
 }				t_gnl;
 
 int				get_next_line(int fd, char **line);
@@ -88,6 +87,5 @@ char			*ft_strjoin_endl(char *s1, const char *s2);
 char			*ft_strjoin_gnl(char *s1, const char *s2);
 int				ft_next_line(int i, int fd, char gnl[NB_FD][BUFFER_SIZE + 1]);
 int				strchrgnl(const char *s, int c);
-
 
 #endif
