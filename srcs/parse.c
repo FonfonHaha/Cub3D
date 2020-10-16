@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/03/12 18:17:07 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/16 14:46:29 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ unsigned int	*ft_load_tex(t_struct *s, char *line)
 		ft_error(s, 12);
 	s->tex.width = tmp[0];
 	adr = (unsigned int*)mlx_get_data_addr(ptr, &tmp[2], &tmp[3], &tmp[4]);
-	free(ptr);
+	s->ptrimg.ptr[s->ptrimg.i] = ptr;
+    s->ptrimg.i++;
+    //free(ptr);
 	free(tab[0]);
 	free(tab);
 	s->parse.tex++;

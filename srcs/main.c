@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/15 23:32:30 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/16 14:44:26 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_init_iii(t_struct *s)
     s->keys.esc = 0;
     s->keys.left = 0;
     s->keys.right = 0;
+    s->ptrimg.i = 0;
 }
 
 void	ft_init_ii(t_struct *s)

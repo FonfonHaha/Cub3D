@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:51:38 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/15 23:29:05 by paco             ###   ########.fr       */
+/*   Updated: 2020/10/16 14:45:38 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,6 +233,12 @@ typedef struct      s_keys
     int             right;
 }                   t_keys;
 
+typedef struct      s_ptr_img
+{
+    int             i;
+    void            *ptr[10];
+}                   t_ptr_img;
+
 
 /*
 ** cam = x cam coordinate, -1 = left, 0 = center, 1 = right
@@ -254,6 +260,7 @@ typedef struct		s_struct
 	t_wall			wall;
 	t_sprite		*sprite;
     t_keys          keys;
+    t_ptr_img       ptrimg;
 	double			cam;
 	unsigned int	color;
 	char			*cub;
