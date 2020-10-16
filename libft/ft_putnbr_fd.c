@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:11:08 by pcoureau          #+#    #+#             */
-/*   Updated: 2019/10/20 11:37:57 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/16 13:12:22 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ void	ft_putnbr_fd(int nb, int fd)
 		r = t % 10;
 		t = t / 10;
 		if (t != 0)
-		{
 			ft_putnbr_fd(t, fd);
-		}
 		ft_putchar_fd(r + '0', fd);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 13:50:15 by pcoureau          #+#    #+#             */
-/*   Updated: 2019/10/20 22:17:03 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/16 13:14:33 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	*free_tab(char **tab)
 {
-	int n;
+	int i;
 
-	n = 0;
-	while (tab[n])
-		free(tab[n++]);
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
 	free(tab);
 	return (NULL);
 }
@@ -26,22 +26,22 @@ static void	*free_tab(char **tab)
 static char	**new_tab(char **tab, char *str)
 {
 	char	**new_tab;
-	int		n;
+	int		i;
 
-	n = 0;
-	while (tab[n])
-		n++;
-	if (!(new_tab = calloc(sizeof(char **), n + 2)))
+	i = 0;
+	while (tab[i])
+		i++;
+	if (!(new_tab = calloc(sizeof(char **), i + 2)))
 		return (NULL);
-	n = 0;
-	while (tab[n])
+	i = 0;
+	while (tab[i])
 	{
-		new_tab[n] = tab[n];
-		n++;
+		new_tab[i] = tab[i];
+		i++;
 	}
 	free(tab);
-	new_tab[n] = str;
-	new_tab[n + 1] = NULL;
+	new_tab[i] = str;
+	new_tab[i + 1] = NULL;
 	return (new_tab);
 }
 

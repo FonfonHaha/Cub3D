@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:02:38 by pcoureau          #+#    #+#             */
-/*   Updated: 2019/10/20 11:38:19 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/16 13:12:57 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int i;
 
-	if (fd < 0)
+	if (fd < 0 || !s)
 		return ;
 	i = 0;
-	if (!s)
-		return ;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);

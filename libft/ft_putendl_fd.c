@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:38:08 by pcoureau          #+#    #+#             */
-/*   Updated: 2019/10/20 11:37:30 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/16 13:11:05 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (fd < 0)
-		return ;
-	if (!s)
+	if (fd < 0 || !s)
 		return ;
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);

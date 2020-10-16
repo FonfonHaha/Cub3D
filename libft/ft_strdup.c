@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:09:07 by pcoureau          #+#    #+#             */
-/*   Updated: 2019/10/17 10:45:16 by pcoureau         ###   ########.fr       */
+/*   Updated: 2020/10/16 13:16:45 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ char		*ft_strdup(const char *src)
 		dest = NULL;
 		return (dest);
 	}
-	dest = (char*)malloc(sizeof(*src) * (ft_strlen(src) + 1));
-	if (dest == NULL)
+	if (!(dest = (char*)malloc(sizeof(*src) * (ft_strlen(src) + 1))))
 		return (dest);
 	dest = ft_strcpy(dest, src);
 	return (dest);
