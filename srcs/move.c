@@ -50,10 +50,18 @@ void	ft_moves(t_struct *s, double n)
 		s->p.pos.y += n * s->p.dir.x * SPEED;
 }
 
+void	ft_antibug(t_struct *s)
+{
+	while (!s->keys.w && !s->keys.s && !s->keys.a && !s->keys.d
+			&& !s->keys.left && !s->keys.right)
+	return ;
+}
+
 int		ft_move(t_struct *s)
 {
 	if (s->keys.esc)
 		exit(0);
+	ft_antibug(s);
 	if (s->keys.w)
 		ft_movef(s, 0.5);
 	if (s->keys.s)

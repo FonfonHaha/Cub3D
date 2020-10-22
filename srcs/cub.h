@@ -39,8 +39,8 @@
 **	keys linux**
 */
 # define ESC 65307
-# define KEY_W 119
-# define KEY_A 97
+# define KEY_W 122
+# define KEY_A 113
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_UP 65362
@@ -277,7 +277,7 @@ void				ft_init_iii(t_struct *s);
 void				ft_init_raycasting_data(t_struct *s);
 
 /*
-** key_minimize.c
+** moveii.c
 */
 int					ft_display(t_struct *s);
 int					ft_keypress(int k, void *s);
@@ -299,7 +299,7 @@ unsigned int		*ft_load_tex(t_struct *s, char *tmp);
 void				ft_get_pos(t_struct *s);
 void				ft_load_map(t_struct *s, char *line);
 void				ft_check_map_char(t_struct *s, int x, int y);
-int					ft_check_map_borders(t_struct *s, int x, int y, char **map);
+int					ft_map_close(t_struct *s, int x, int y, char **map);
 void				ft_check_map(t_struct *s);
 
 /*
@@ -318,13 +318,6 @@ int					ft_exit(t_struct *s);
 void				ft_error(t_struct *s, int err);
 int					ft_check_parsing(t_struct *s);
 void				ft_resolutionii(t_struct *s, int n);
-
-/*
-** print.c
-*/
-void				ft_print_arg(t_struct *s);
-void				print_map(t_struct *s);
-void				print_sprite(t_struct *s);
 
 /*
 ** walls.c

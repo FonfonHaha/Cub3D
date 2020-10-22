@@ -12,18 +12,17 @@
 
 NAME	= cub3D
 SRC		=   main.c \
-			key_minimize.c \
             parse.c \
             parse_map.c \
             utils.c \
-            print.c \
             utilsii.c \
 			bitmap.c \
 			walls.c \
 			wallsii.c \
 			sprite.c \
 			spriteii.c \
-			move.c
+			move.c \
+			moveii.c
 		
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))

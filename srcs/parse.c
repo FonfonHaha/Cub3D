@@ -141,7 +141,6 @@ void			ft_parse(t_struct *s)
 		ft_error(s, 5);
 	ft_get_pos(s);
 	ft_check_map(s);
-	ft_print_arg(s);
 	if (s->parse.tex != 5 || s->parse.color != 2 || s->parse.res != 1)
 		ft_error(s, 13);
 	close(fd);

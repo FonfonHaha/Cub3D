@@ -34,27 +34,25 @@ void	ft_check_map_char(t_struct *s, int x, int y)
 		return (ft_error(s, 10));
 }
 
-int		ft_check_map_borders(t_struct *s, int x, int y, char **map)
+int		ft_map_close(t_struct *s, int x, int y, char **map)
 {
 	int		len;
 
-	len = ft_strlen(map[y]);
-	if (x >= len)
-		return (-1);
 	if (x == -1 || y == -1 || y == s->map.h)
 		return (-1);
-	if (x > len)
+	len = ft_strlen(map[y]);
+	if (x >= len)
 		return (-1);
 	if (map[y][x] == '1' || map[y][x] == '9')
 		return (1);
 	map[y][x] = '9';
-	if (ft_check_map_borders(s, x, y - 1, map) < 0)
+	if (ft_map_close(s, x, y - 1, map) < 0)
 		return (-1);
-	if (ft_check_map_borders(s, x + 1, y, map) < 0)
+	if (ft_map_close(s, x + 1, y, map) < 0)
 		return (-1);
-	if (ft_check_map_borders(s, x, y + 1, map) < 0)
+	if (ft_map_close(s, x, y + 1, map) < 0)
 		return (-1);
-	if (ft_check_map_borders(s, x - 1, y, map) < 0)
+	if (ft_map_close(s, x - 1, y, map) < 0)
 		return (-1);
 	return (1);
 }
@@ -75,7 +73,7 @@ void	ft_check_map(t_struct *s)
 	}
 	s->map.h = i;
 	ft_check_map_char(s, 0, 0);
-	if (ft_check_map_borders(s, s->p.pos.x - 0.5, s->p.pos.y - 0.5, map) < 0)
+	if (ft_map_close(s, s->p.pos.x - 0.5, s->p.pos.y - 0.5, map) < 0)
 		ft_error(s, 11);
 	i = 0;
 	while (map[i])
