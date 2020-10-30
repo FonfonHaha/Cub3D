@@ -14,7 +14,6 @@
 # define CUB_H
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
-
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
@@ -23,7 +22,7 @@
 # include <string.h>
 
 /*
-**	keys mac**
+**	keys mac
 ** # define ESC 53
 ** # define KEY_W 13
 ** # define KEY_A 0
@@ -36,7 +35,7 @@
 */
 
 /*
-**	keys linux**
+**	keys linux vm
 */
 # define ESC 65307
 # define KEY_W 122
@@ -56,6 +55,7 @@
 
 /*
 **	colors
+** BLACK is for vm, different on mac
 */
 # define WHITE 0x00FFFFFF
 # define BLACK 0x00000000
@@ -72,12 +72,7 @@
 # define WIN_NAME "Cub3D"
 # define BPP 4
 
-/*
-** moves settings
-*/
-# define SPEED 0.2
-# define ANGLE 0.1
-# define FOV 0.7
+# define SPEED 0.5
 
 typedef struct		s_xy
 {
@@ -139,6 +134,7 @@ typedef struct		s_map
 	int				x;
 	int				y;
 	int				sprite_nb;
+	int				sprite_countok;
 
 }					t_map;
 
@@ -294,6 +290,11 @@ t_color				ft_color(t_struct *s, char	*tmp);
 unsigned int		*ft_load_tex(t_struct *s, char *tmp);
 
 /*
+** parseii.c
+*/
+void				ft_checkcolor(t_struct *s, char **tab);
+
+/*
 ** parse_map.c
 */
 void				ft_get_pos(t_struct *s);
@@ -339,11 +340,9 @@ void				ft_pixel(t_struct *s);
 ** move.c
 */
 int					ft_move(t_struct *s);
-int					key_press(int key, t_struct *s);
-void				ft_move_forward(t_struct *s, double sign);
-void				ft_move_side(t_struct *s, double sign);
-void				ft_rotate(t_struct *s, double sign);
-void				ft_event(t_struct *s);
+void				ft_moves(t_struct *s, double n);
+void				ft_movef(t_struct *s, double n);
+void				ft_rotate(t_struct *s, double n);
 
 /*
 ** sprite.c

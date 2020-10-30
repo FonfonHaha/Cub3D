@@ -25,6 +25,7 @@ t_color			ft_color(t_struct *s, char *line)
 		i++;
 	if (i != 3)
 		ft_error(s, 4);
+	ft_checkcolor(s, tab);
 	color.r = ft_atoi((const char *)tab[0]);
 	color.g = ft_atoi((const char *)tab[1]);
 	color.b = ft_atoi((const char *)tab[2]);

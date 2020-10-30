@@ -13,6 +13,7 @@
 NAME	= cub3D
 SRC		=   main.c \
             parse.c \
+			parseii.c \
             parse_map.c \
             utils.c \
             utilsii.c \
@@ -27,7 +28,7 @@ SRC		=   main.c \
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror -g -g3
 FT		= ./libft/
 FT_MLX 	= ./minilibx-linux/
 FT_LIB	= $(addprefix $(FT),libft.a)

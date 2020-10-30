@@ -1,5 +1,5 @@
 R  1500 750
-F 191  ,  191 ,  191
+F 191 ,  191 ,  191
 C 5,225 ,225  
 NO ./images/brick.xpm
 SO    ./images/grey.xpm

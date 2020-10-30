@@ -17,6 +17,7 @@ void	ft_init_iii(t_struct *s)
 	s->map.x = 0;
 	s->map.y = 0;
 	s->map.sprite_nb = 0;
+	s->map.sprite_countok = 0;
 	s->map.tab = 0;
 	s->cam = 0.0;
 	s->p.pos.x = 0.0;
@@ -37,6 +38,7 @@ void	ft_init_iii(t_struct *s)
 	s->keys.left = 0;
 	s->keys.right = 0;
 	s->ptrimg.i = 0;
+	s->sprite = NULL;
 }
 
 void	ft_init_ii(t_struct *s)
@@ -119,6 +121,6 @@ int		main(int ac, char **av)
 			&& ft_strncmp(av[2], "--save", 7) == 0)
 		ft_init(av[1], 1);
 	else
-		write(2, "wrong arguments\n", 16);
+		ft_putstr_fd("ERROR, WRONG ARGUMENTS\n", 2);
 	return (1);
 }

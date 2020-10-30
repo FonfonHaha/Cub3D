@@ -17,35 +17,46 @@ int		ft_exit(t_struct *s)
 	int	i;
 
 	i = 0;
-	i++;
 	s->x = i;
-	while (s->map.tab[i])
-		free(s->map.tab[i++]);
-	free(s->cub);
-	free(s->wall.buf);
+	if (s->map.tab)
+	{
+		while (s->map.tab[i])
+			free(s->map.tab[i++]);
+		free(s->map.tab);
+	}
+	i = s->ptrimg.i - 1;
+	while (i >= 0)
+		mlx_destroy_image(s->mlx, s->ptrimg.ptr[i--]);
+	(s->sprite) ? free(s->sprite) : 0;
+	(s->floor.color) ? free(s->floor.color) : 0;
+	(s->sky.color) ? free(s->sky.color) : 0;
+	(s->wall.buf) ? free(s->wall.buf) : 0;
+	(s->img.ptr) ? mlx_destroy_image(s->mlx, s->img.ptr) : 0;
+	(s->win.ptr) ? mlx_destroy_window(s->mlx, s->win.ptr) : 0;
+	(s->cub) ? free(s->cub) : 0;
+	(s->mlx) ? free(s->mlx) : 0;
 	exit(0);
 }
 
 void	ft_error(t_struct *s, int err)
 {
-	(err == 1) ? ft_putstr_fd("Error : calloc fail\n", 2) : 0;
-	(err == 2) ? ft_putstr_fd("Error : wrong map file extension\n", 2) : 0;
-	(err == 3) ? ft_putstr_fd("Error : wrong resolution description\n", 2) : 0;
+	(err == 1) ? ft_putstr_fd("ERROR ON MALLOC\n", 2) : 0;
+	(err == 2) ? ft_putstr_fd("ERROR ON MAP FILE\n", 2) : 0;
+	(err == 3) ? ft_putstr_fd("ERROR ON RESOLUTION\n", 2) : 0;
 	(err == 4) ?
-		ft_putstr_fd("Error : wrong sky or ceiling description\n", 2) : 0;
-	(err == 5) ? ft_putstr_fd("Error : missing element description\n", 2) : 0;
-	(err == 6) ? ft_putstr_fd("Error : wrong texture description\n", 2) : 0;
-	(err == 7) ? ft_putstr_fd("Error : couldn't create bmp file\n", 2) : 0;
-	(err == 8) ? ft_putstr_fd("Error : couldn't open map file\n", 2) : 0;
+		ft_putstr_fd("ERROR ON SKY OR CEILING DESCRIPTION\n", 2) : 0;
+	(err == 5) ? ft_putstr_fd("ERROR, AN ELEMENT IS MISSING\n", 2) : 0;
+	(err == 6) ? ft_putstr_fd("ERROR ON TEXTURE DESCRIPTION\n", 2) : 0;
+	(err == 7) ? ft_putstr_fd("ERROR BMP FILE COULD NOT CREATE IT\n", 2) : 0;
+	(err == 8) ? ft_putstr_fd("ERROR, CAN NOT OPEN MAP FILE\n", 2) : 0;
 	(err == 9) ?
-		ft_putstr_fd("Error : map contains forbidden characters\n", 2) : 0;
-	(err == 10) ? ft_putstr_fd("Error : multiple starting position\n", 2) : 0;
-	(err == 11) ? ft_putstr_fd("Error : map is not closed\n", 2) : 0;
+		ft_putstr_fd("ERROR ON MAP, CHARACTER NOT ALLOWED DETECTED\n", 2) : 0;
+	(err == 10) ? ft_putstr_fd("ERROR ON MAP, USE ONLY ONE START\n", 2) : 0;
+	(err == 11) ? ft_putstr_fd("ERROR ON MAP, IT IS NOT CLOSED\n", 2) : 0;
 	(err == 12) ?
-		ft_putstr_fd("Error : Wrong texture\n", 2) : 0;
+		ft_putstr_fd("ERROR, WRONG TEXTURE\n", 2) : 0;
 	(err == 13) ?
-		ft_putstr_fd("Error : duplicated element description\n", 2) : 0;
-	exit(0);
+		ft_putstr_fd("ERROR, DUPLICATED ELEMENT DESCRIPTION\n", 2) : 0;
 	ft_exit(s);
 }
 

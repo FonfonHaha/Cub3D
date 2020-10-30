@@ -45,6 +45,8 @@ int		ft_map_close(t_struct *s, int x, int y, char **map)
 		return (-1);
 	if (map[y][x] == '1' || map[y][x] == '9')
 		return (1);
+	if (map[y][x] == ' ')
+		return (-1);
 	map[y][x] = '9';
 	if (ft_map_close(s, x, y - 1, map) < 0)
 		return (-1);
@@ -92,12 +94,12 @@ void	ft_get_pos(t_struct *s)
 				s->p.dir.y = -1;
 			if (s->map.tab[s->map.y][s->map.x] == 'S')
 				s->p.dir.y = 1;
-			s->p.plane.x = FOV * -s->p.dir.y;
+			s->p.plane.x = 0.7 * -s->p.dir.y;
 			if (s->map.tab[s->map.y][s->map.x] == 'E')
 				s->p.dir.x = 1;
 			if (s->map.tab[s->map.y][s->map.x] == 'W')
 				s->p.dir.x = -1;
-			s->p.plane.y = FOV * -s->p.dir.x;
+			s->p.plane.y = 0.7 * s->p.dir.x;
 			if ((s->p.dir.x != 0 || s->p.dir.y != 0) && (s->p.pos.x == 0))
 			{
 				s->map.tab[s->map.y][s->map.x] = '0';

@@ -89,15 +89,19 @@ void	ft_countsprite(t_struct *s)
 		}
 		s->y++;
 	}
+	s->map.sprite_countok = 1;
 }
 
 void	ft_sprite(t_struct *s)
 {
-	if (s->map.sprite_nb == 0)
+	if (s->map.sprite_countok == 0)
 	{
 		ft_countsprite(s);
-		if (!(s->sprite = malloc(sizeof(t_sprite) * s->map.sprite_nb)))
-			ft_error(s, 1);
+		if (s->map.sprite_nb != 0)
+		{
+			if (!(s->sprite = malloc(sizeof(t_sprite) * s->map.sprite_nb)))
+				ft_error(s, 1);
+		}
 	}
 	ft_spritepos(s);
 	ft_spritedist(s);
