@@ -33,6 +33,8 @@ int		ft_key_act_deact(t_struct *s, int k, int n)
 
 int		ft_display(t_struct *s)
 {
+	mlx_destroy_image(s->mlx, s->img.ptr);
+	s->img.ptr = mlx_new_image(s->mlx, s->win.x, s->win.y);
 	ft_wall(s);
 	mlx_put_image_to_window(s->mlx, s->win.ptr, s->img.ptr, 0, 0);
 	return (0);

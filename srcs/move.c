@@ -18,7 +18,7 @@ void	ft_rotate(t_struct *s, double n)
 	double	oldpx;
 	double	rot;
 
-	rot = 0.1 * n;
+	rot = 0.2 * n;
 	olddx = s->p.dir.x;
 	oldpx = s->p.plane.x;
 	s->p.dir.x = s->p.dir.x * cos(rot) - s->p.dir.y * sin(rot);

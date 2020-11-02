@@ -116,7 +116,7 @@ void			ft_read_line(t_struct *s, char *line)
 		s->floor = ft_color(s, &line[s->i]);
 	if (line[s->i] == 'C' && line[s->i + 1] == ' ')
 		s->sky = ft_color(s, &line[s->i]);
-	return ;
+	return;
 }
 
 void			ft_parse(t_struct *s)
