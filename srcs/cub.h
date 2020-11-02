@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:51:38 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/16 14:45:38 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/02 23:13:35 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,6 +262,7 @@ typedef struct		s_struct
 	int				i;
 	int				x;
 	int				y;
+    int             errorline;
 }					t_struct;
 
 /*
@@ -293,6 +294,7 @@ unsigned int		*ft_load_tex(t_struct *s, char *tmp);
 ** parseii.c
 */
 void				ft_checkcolor(t_struct *s, char **tab);
+int                 ft_checkfirstchars(t_struct *s, char *line);
 
 /*
 ** parse_map.c

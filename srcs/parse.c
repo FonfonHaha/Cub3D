@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/16 14:46:29 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/03 00:02:36 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void			ft_resolution(t_struct *s, char *line)
 		free(tab);
 		ft_error(s, 3);
 	}
+    ft_checkcolor(s, tab);
 	s->win.x = ft_atoi((const char *)tab[0]);
 	s->win.y = ft_atoi((const char *)tab[1]);
 	ft_resolutionii(s, 0);
@@ -124,7 +125,7 @@ void			ft_parse(t_struct *s)
 	char		*line;
 	int			fd;
 
-	if (!(fd = open(s->cub, O_RDONLY)))
+	if ((fd = open(s->cub, O_RDONLY)) < 0)
 		ft_error(s, 8);
 	while (get_next_line(fd, &line) == 1)
 	{
@@ -133,6 +134,7 @@ void			ft_parse(t_struct *s)
 			ft_load_map(s, line);
 		else
 		{
+            ft_checkfirstchars(s, line);
 			ft_read_line(s, line);
 			free(line);
 		}
@@ -140,7 +142,7 @@ void			ft_parse(t_struct *s)
 	free(line);
 	if (ft_check_parsing(s) == -1)
 		ft_error(s, 5);
-	ft_get_pos(s);
+    ft_get_pos(s);
 	ft_check_map(s);
 	if (s->parse.tex != 5 || s->parse.color != 2 || s->parse.res != 1)
 		ft_error(s, 13);

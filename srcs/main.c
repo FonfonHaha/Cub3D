@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/16 14:44:26 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/02 23:11:57 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	ft_init(char *av1, int arg)
 	t_struct	s;
 	int			tab[3];
 
+    ft_bzero(&s, sizeof(t_struct));
 	s.cub = ft_strdup(av1);
 	s.mlx = mlx_init();
 	ft_init_ii(&s);

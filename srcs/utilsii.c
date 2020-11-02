@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/15 14:56:29 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/03 00:05:06 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		ft_exit(t_struct *s)
 {
+    s->x = 0;
 	int	i;
 
 	i = 0;
@@ -28,8 +29,6 @@ int		ft_exit(t_struct *s)
 	while (i >= 0)
 		mlx_destroy_image(s->mlx, s->ptrimg.ptr[i--]);
 	(s->sprite) ? free(s->sprite) : 0;
-	(s->floor.color) ? free(s->floor.color) : 0;
-	(s->sky.color) ? free(s->sky.color) : 0;
 	(s->wall.buf) ? free(s->wall.buf) : 0;
 	(s->img.ptr) ? mlx_destroy_image(s->mlx, s->img.ptr) : 0;
 	(s->win.ptr) ? mlx_destroy_window(s->mlx, s->win.ptr) : 0;
@@ -40,6 +39,10 @@ int		ft_exit(t_struct *s)
 
 void	ft_error(t_struct *s, int err)
 {
+    if (s->errorline == 1)
+    {
+        err = 2;
+    }
 	(err == 1) ? ft_putstr_fd("ERROR ON MALLOC\n", 2) : 0;
 	(err == 2) ? ft_putstr_fd("ERROR ON MAP FILE\n", 2) : 0;
 	(err == 3) ? ft_putstr_fd("ERROR ON RESOLUTION\n", 2) : 0;
@@ -67,7 +70,9 @@ int		ft_check_parsing(t_struct *s)
 				s->floor.r == -1 || s->floor.g == -1 || s->floor.b == -1 ||
 				s->sky.r == -1 || s->sky.g == -1 || s->sky.b == -1))
 		return (-1);
-	else
+	if (s->errorline == 1)
+        return (-1);
+    else
 		return (1);
 }
 
