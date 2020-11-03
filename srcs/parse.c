@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/11/03 00:02:36 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/03 16:41:23 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ t_color			ft_color(t_struct *s, char *line)
 	while (tab[i])
 		i++;
 	if (i != 3)
-		ft_error(s, 4);
+		ft_errorl(s, 4, line);
 	ft_checkcolor(s, tab);
 	color.r = ft_atoi((const char *)tab[0]);
 	color.g = ft_atoi((const char *)tab[1]);
 	color.b = ft_atoi((const char *)tab[2]);
+    while (i >= 0)
+        free(tab[i--]);
+    free(tab);
 	if (color.r > 255 || color.r < 0 || color.g > 255 || color.g < 0 ||
 			color.b > 255 || color.b < 0)
-		ft_error(s, 4);
-	while (i >= 0)
-		free(tab[i--]);
-	free(tab);
+		ft_errorl(s, 4, line);
 	s->parse.color++;
 	return (color);
 }
@@ -53,11 +53,11 @@ unsigned int	*ft_load_tex(t_struct *s, char *line)
 	while (tab[i])
 		i++;
 	if (i != 1)
-		ft_error(s, 6);
+        ft_te(s, line, tab, 1, i);
 	ptr = mlx_xpm_file_to_image(s->mlx, tab[0], &tmp[0], &tmp[1]);
 	if (tmp[0] != tmp[1])
-		ft_error(s, 12);
-	s->tex.width = tmp[0];
+        ft_te(s, line, tab, 2, i);
+    s->tex.width = tmp[0];
 	adr = (unsigned int*)mlx_get_data_addr(ptr, &tmp[2], &tmp[3], &tmp[4]);
 	s->ptrimg.ptr[s->ptrimg.i] = ptr;
 	s->ptrimg.i++;
@@ -82,7 +82,7 @@ void			ft_resolution(t_struct *s, char *line)
 		while (i >= 0)
 			free(tab[i--]);
 		free(tab);
-		ft_error(s, 3);
+		ft_errorl(s, 3, line);
 	}
     ft_checkcolor(s, tab);
 	s->win.x = ft_atoi((const char *)tab[0]);

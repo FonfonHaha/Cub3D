@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:51:38 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/11/02 23:13:35 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/03 16:39:23 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,6 +295,8 @@ unsigned int		*ft_load_tex(t_struct *s, char *tmp);
 */
 void				ft_checkcolor(t_struct *s, char **tab);
 int                 ft_checkfirstchars(t_struct *s, char *line);
+void                ft_errorl(t_struct *s, int i, char *line);
+void                ft_te(t_struct *s, char *line, char **tab, int n, int i);
 
 /*
 ** parse_map.c

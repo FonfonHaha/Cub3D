@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/11/02 23:55:06 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/03 16:39:10 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ int     ft_checkfirstchars(t_struct *s, char *line)
     return (0);
 }
 
+void    ft_errorl(t_struct *s, int i, char *line)
+{
+    free(line);
+    ft_error(s, i);
+}
+
 void	ft_checkcolor(t_struct *s, char **tab)
 {
     int i;
@@ -56,5 +62,22 @@ void	ft_checkcolor(t_struct *s, char **tab)
         if (tab[i][y])
             s->errorline = 1;
         i++;
+    }
+}
+
+void        ft_te(t_struct *s, char *line, char **tab, int n, int i)
+{
+    if (n == 1)
+    {
+        while (i >= 0)
+            free(tab[i--]);
+        free(tab);
+        ft_errorl(s, 6, line);
+    }
+    if (n == 2)
+    {
+        free(tab[0]);
+        free(tab);
+        ft_errorl(s, 12, line);
     }
 }

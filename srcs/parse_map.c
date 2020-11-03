@@ -6,7 +6,7 @@
 /*   By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 11:54:16 by pcoureau          #+#    #+#             */
-/*   Updated: 2020/10/05 15:32:18 by paco             ###   ########.fr       */
+/*   Updated: 2020/11/03 14:28:34 by paco             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	ft_check_map(t_struct *s)
 	int		i;
 
 	i = 0;
+    ft_check_map_char(s, 0, 0);
 	if (!(map = ft_calloc(sizeof(char **), 1)))
 		ft_error(s, 1);
 	while (s->map.tab[i])
