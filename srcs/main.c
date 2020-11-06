@@ -63,6 +63,7 @@ void	ft_init_ii(t_struct *s)
 	s->sky.b = -1;
 	s->sky.color = 0;
 	s->floor = s->sky;
+	ft_init_iii(s);
 }
 
 void	ft_init_rc_data(t_struct *s)
@@ -89,11 +90,10 @@ void	ft_init(char *av1, int arg)
 	t_struct	s;
 	int			tab[3];
 
-    ft_bzero(&s, sizeof(t_struct));
+	ft_bzero(&s, sizeof(t_struct));
 	s.cub = ft_strdup(av1);
 	s.mlx = mlx_init();
 	ft_init_ii(&s);
-	ft_init_iii(&s);
 	ft_parse(&s);
 	ft_init_rc_data(&s);
 	s.img.ptr = mlx_new_image(s.mlx, s.win.x, s.win.y);

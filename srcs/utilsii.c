@@ -14,7 +14,6 @@
 
 int		ft_exit(t_struct *s)
 {
-    s->x = 0;
 	int	i;
 
 	i = 0;
@@ -39,15 +38,15 @@ int		ft_exit(t_struct *s)
 
 void	ft_error(t_struct *s, int err)
 {
-    if (s->errorline == 1)
-    {
-        err = 2;
-    }
+	if (s->errorline == 1)
+	{
+		err = 2;
+	}
 	(err == 1) ? ft_putstr_fd("ERROR ON MALLOC\n", 2) : 0;
 	(err == 2) ? ft_putstr_fd("ERROR ON MAP FILE\n", 2) : 0;
 	(err == 3) ? ft_putstr_fd("ERROR ON RESOLUTION\n", 2) : 0;
 	(err == 4) ?
-		ft_putstr_fd("ERROR ON SKY OR CEILING DESCRIPTION\n", 2) : 0;
+		ft_putstr_fd("ERROR ON SKY OR FLOOR DESCRIPTION\n", 2) : 0;
 	(err == 5) ? ft_putstr_fd("ERROR, AN ELEMENT IS MISSING\n", 2) : 0;
 	(err == 6) ? ft_putstr_fd("ERROR ON TEXTURE DESCRIPTION\n", 2) : 0;
 	(err == 7) ? ft_putstr_fd("ERROR BMP FILE COULD NOT CREATE IT\n", 2) : 0;
@@ -71,8 +70,8 @@ int		ft_check_parsing(t_struct *s)
 				s->sky.r == -1 || s->sky.g == -1 || s->sky.b == -1))
 		return (-1);
 	if (s->errorline == 1)
-        return (-1);
-    else
+		return (-1);
+	else
 		return (1);
 }
 

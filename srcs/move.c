@@ -66,11 +66,6 @@ int		ft_move(t_struct *s)
 		ft_rotate(s, -0.2);
 	if (s->keys.right)
 		ft_rotate(s, 0.2);
-    /*
-	if (s->keys.w || s->keys.s || s->keys.a || s->keys.d
-			|| s->keys.left || s->keys.right)
-		ft_display(s);
-        */
-    ft_display(s);
+	ft_display(s);
 	return (0);
 }

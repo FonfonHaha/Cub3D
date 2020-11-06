@@ -66,7 +66,7 @@ void	ft_check_map(t_struct *s)
 	int		i;
 
 	i = 0;
-    ft_check_map_char(s, 0, 0);
+	ft_check_map_char(s, 0, 0);
 	if (!(map = ft_calloc(sizeof(char **), 1)))
 		ft_error(s, 1);
 	while (s->map.tab[i])

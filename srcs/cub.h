@@ -259,10 +259,11 @@ typedef struct		s_struct
 	double			cam;
 	unsigned int	color;
 	char			*cub;
+	char			*line;
 	int				i;
 	int				x;
 	int				y;
-    int             errorline;
+	int				errorline;
 }					t_struct;
 
 /*
@@ -294,9 +295,9 @@ unsigned int		*ft_load_tex(t_struct *s, char *tmp);
 ** parseii.c
 */
 void				ft_checkcolor(t_struct *s, char **tab);
-int                 ft_checkfirstchars(t_struct *s, char *line);
-void                ft_errorl(t_struct *s, int i, char *line);
-void                ft_te(t_struct *s, char *line, char **tab, int n, int i);
+int					ft_checkfirstchars(t_struct *s, char *line);
+void				ft_errorl(t_struct *s, int i, char *line);
+void				ft_te(t_struct *s, char **tab, int n, int i);
 
 /*
 ** parse_map.c

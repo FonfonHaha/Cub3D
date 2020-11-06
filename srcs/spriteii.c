@@ -19,7 +19,7 @@ void	ft_drawsprite(t_struct *s)
 	int	d;
 
 	x = s->sprite[s->i].start.x;
-	while (x < s->sprite[s->i].end.x)
+	while (x <= s->sprite[s->i].end.x)
 	{
 		s->tex.x = (int)(256 * (x - (-s->sprite[s->i].width / 2 +
 			s->sprite[s->i].screen)) * 64 / s->sprite[s->i].width) / 256;
@@ -28,7 +28,7 @@ void	ft_drawsprite(t_struct *s)
 		{
 			d = y * 256 - s->win.y * 128 + s->sprite[s->i].height * 128;
 			s->tex.y = (int)((d * 64) / s->sprite[s->i].height) / 256;
-			if (x > 0 && x < s->win.x && s->sprite[s->i].depth.y > 0 &&
+			if (x >= 0 && x < s->win.x && s->sprite[s->i].depth.y > 0 &&
 					s->sprite[s->i].depth.y < s->wall.buf[x])
 			{
 				s->color = s->tex.sprite[64 * s->tex.y + s->tex.x];
